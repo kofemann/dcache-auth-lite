@@ -8,7 +8,7 @@
     </description>
 
     <groupId>org.dcache.common</groupId>
-    <artifactId>auth</artifactId>
+    <artifactId>dcache-auth</artifactId>
     <version>0.0.10-SNAPSHOT</version>
     <name>dCache Commons Auth</name>
     <packaging>jar</packaging>
