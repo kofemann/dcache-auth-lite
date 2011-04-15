@@ -131,30 +131,30 @@ public class Subjects
      * @throws NoSuchElementException if subject has no UID
      * @throws IllegalArgumentException is subject has more than one UID
      */
-    public static int getUid(Subject subject) throws IllegalArgumentException
+    public static long getUid(Subject subject) throws IllegalArgumentException
     {
         UidPrincipal uid = getUniquePrincipal(subject, UidPrincipal.class);
         if (uid == null) {
             return -1;
         }
-        return (int)uid.getUid();
+        return uid.getUid();
     }
 
     /**
      * Returns the group IDs of a subject. If the user has a primary
      * group, then first element will be a primary group ID.
      */
-    public static int[] getGids(Subject subject) {
+    public static long[] getGids(Subject subject) {
         Set<GidPrincipal> principals =
                 subject.getPrincipals(GidPrincipal.class);
-        int[] gids = new int[principals.size()];
+        long[] gids = new long[principals.size()];
         int i = 0;
         for (GidPrincipal principal : principals) {
             if (principal.isPrimaryGroup()) {
                 gids[i++] = gids[0];
-                gids[0] = (int)principal.getGid();
+                gids[0] = principal.getGid();
             } else {
-                gids[i++] = (int)principal.getGid();
+                gids[i++] = principal.getGid();
             }
         }
         return gids;
@@ -197,7 +197,7 @@ public class Subjects
      * @param gid
      * @param gids
      */
-    public static Subject of(int uid, int gid, int[] gids) {
+    public static Subject of(int uid, int gid, int...gids) {
 
         Subject subject = new Subject();
         subject.getPrincipals().add(new UidPrincipal(uid));
