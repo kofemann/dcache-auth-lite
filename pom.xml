@@ -13,6 +13,10 @@
     <name>dCache Commons Auth</name>
     <packaging>jar</packaging>
     <url>http://www.dCache.ORG</url>
+    <scm>
+        <connection>scm:hg:ssh://svn.dcache.org/hg/dca</connection>
+        <developerConnection>scm:hg:ssh://svn.dcache.org/hg/dca</developerConnection>
+     </scm>
 
     <build>
         <plugins>
